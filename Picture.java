@@ -27,7 +27,7 @@ public class Picture {
         String filename = "MyPicture.png";
         try {
             pic.saveToFile(new File(filename));
-            System.err.println("Picture saved to " + filename);
+            System.out.println("Picture saved to " + filename);
         } catch (IOException e) {
             System.err.println(e);
             System.err.println("Could not save file.");
