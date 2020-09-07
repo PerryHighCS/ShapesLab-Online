@@ -46,14 +46,10 @@ public class Canvas {
     //  ----- instance part -----
     private int width;
     private int height;
-    private BufferStrategy bs;
     private Color backgroundColor;
-    private Image canvasImage;
     private final Map<Object, DrawShape> shapes;
     private String title;
     private boolean paused = false;
-    private boolean firstShown = false;
-    private boolean drawing = false;
 
     /**
      * Create a Canvas.

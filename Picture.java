@@ -22,9 +22,17 @@ public class Picture {
         Circle c = new Circle();
         c.makeVisible();
 
-        pic.redraw();
+        // Get the filename to save to from the command line arguments, defaulting to
+        // MyPicture.png if no argument is given
+        String filename;
+        if (args.length > 0 && args[0] != null && !args[0].isEmpty()) {
+            filename = args[0];
+        }
+        else {
+            filename = "MyPicture.png";
+        }
 
-        String filename = "MyPicture.png";
+        // Save the picture to a file
         try {
             pic.saveToFile(new File(filename));
             System.out.println("Picture saved to " + filename);
