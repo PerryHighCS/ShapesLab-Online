@@ -24,7 +24,7 @@ public class Picture {
 
         pic.redraw();
 
-        String filename = "pic.png";
+        String filename = "MyPicture.png";
         try {
             pic.saveToFile(new File(filename));
             System.err.println("Picture saved to " + filename);
