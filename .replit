@@ -1,2 +1,2 @@
 language = "java10"
-run = "sh -v ./.make.sh"
+run = "sh -v ./.run.sh"
