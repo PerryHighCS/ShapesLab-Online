@@ -157,4 +157,24 @@ public class Triangle
             canvas.remove(this);
         }
     }
+
+    
+    /**
+     * Get a text description of the triangle.
+     */
+    public String toString() {
+        String visibility;
+        if (isVisible) {
+            visibility = "Visible";
+        }
+        else {
+            visibility = "Invisible";
+        }
+
+        return visibility + " Triangle" +
+            " with width " + this.width + 
+            " height  " + this.height +
+            " at (" + this.xPosition + ", " + this.yPosition + ")" +
+            " with color " + this.color;
+    }
 }

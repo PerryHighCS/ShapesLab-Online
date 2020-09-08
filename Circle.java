@@ -144,4 +144,21 @@ public class Circle
             canvas.remove(this);
         }
     }
+
+    /**
+     * Get a text description of the circle.
+     */
+    public String toString() {
+        String visibility;
+        if (isVisible) {
+            visibility = "Visible";
+        }
+        else {
+            visibility = "Invisible";
+        }
+
+        return visibility + " Circle of diameter " + this.diameter + 
+            " at (" + this.xPosition + ", " + this.yPosition + ")" +
+            " with color " + this.color;
+    }
 }

@@ -160,4 +160,23 @@ public class Rect
             canvas.remove(this);
         }
     }
+
+    /**
+     * Get a text description of the rectangle.
+     */
+    public String toString() {
+        String visibility;
+        if (isVisible) {
+            visibility = "Visible";
+        }
+        else {
+            visibility = "Invisible";
+        }
+
+        return visibility + " Rectangle" +
+            " with width " + this.xSize + 
+            " height  " + this.ySize +
+            " at (" + this.xPosition + ", " + this.yPosition + ")" +
+            " with color " + this.color;
+    }
 }

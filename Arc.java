@@ -325,4 +325,23 @@ public class Arc
             canvas.remove(this);
         }
     }
+
+    /**
+     * Get a text description of the arc.
+     */
+    public String toString() {
+        String visibility;
+        if (isVisible) {
+            visibility = "Visible";
+        }
+        else {
+            visibility = "Invisible";
+        }
+
+        return visibility + " Arc of diameter " + this.diameter + 
+            " at (" + this.xPosition + ", " + this.yPosition + ")" +
+            " starting at " + this.startAngle + "degrees, " +
+            this.extent + " degrees wide," +
+            " with color " + this.color;
+    }
 }
