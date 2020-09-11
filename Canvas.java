@@ -63,10 +63,8 @@ public class Canvas {
     private JFrame frame;
     private CanvasPane canvas;
     private BufferStrategy bs;
-    private Image canvasImage;
     private boolean paused = false;
     private boolean firstShown = false;
-    private boolean drawing = false;
 
     /**
      * Create a Canvas.
@@ -332,16 +330,21 @@ public class Canvas {
     }
 
     /**
-     * Erase the whole canvas. (Does not repaint.)
+     * Erase the whole canvas.
      */
-    private void erase() {
-        Graphics buffer = bs.getDrawGraphics();
-        buffer.setColor(backgroundColor);
-        Dimension size = canvas.getSize();
-        buffer.fillRect(0, 0, size.width, size.height);
+    public void erase() {
+        synchronized (shapes) {
+            shapes.clear();
+            if (!headless) {
+                Graphics buffer = bs.getDrawGraphics();
+                buffer.setColor(backgroundColor);
+                Dimension size = canvas.getSize();
+                buffer.fillRect(0, 0, size.width, size.height);
 
-        buffer.dispose();
-        bs.show();
+                buffer.dispose();
+                bs.show();
+            }
+        }
     }
 
     /**
@@ -440,6 +443,7 @@ public class Canvas {
      * Canvas frame.
      */
     private class CanvasPane extends java.awt.Canvas {
+        static final long serialVersionUID = 1;
         @Override
         public void paint(Graphics g) {
             redraw();
